@@ -1,0 +1,227 @@
+/* Общий стиль страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4e8d0; /* Теплый фон */
+    margin: 0;
+    padding: 0;
+}
+
+/* Стиль для заголовка страницы */
+.title {
+    text-align: center;
+    font-size: 24px;
+    color: #b86f50; /* Цвет заголовка */
+    margin-top: 20px;
+}
+
+/* Стиль для основного меню */
+ul.mainmenu {
+    list-style-type: none;
+	font-size: 20px;
+    padding: 10px;
+    background-color: #ffdab9; /* Цвет фона меню */
+    text-align: center;
+}
+
+ul.mainmenu li {
+    display: inline;
+    margin-right: 20px;
+}
+
+ul.mainmenu li a {
+    text-decoration: none;
+    color: #b86f50; /* Цвет ссылок в меню */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+ul.mainmenu li a:hover {
+    color: #ff6347; /* Цвет ссылок в меню при наведении */
+}
+
+.container {
+  background-color: #fff; /* Белый фон контейнера */
+  padding: 20px;
+  margin: 20px auto; /* Автоматическое выравнивание по центру по горизонтали */
+  max-width: 600px; /* Ширина контейнера, чтобы он не был слишком широким */
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Тень контейнера */
+}
+
+.form-contact label {
+    display: inline-block;
+    min-width: 80px;
+}
+
+.form-contact p {margin: 10px 0 10px 0;}
+.form-contact input[type=submit], texture {
+    font-size: 16px;
+}
+
+.flash {padding: 10px;}
+.flash.success {
+         border: 1px solid #21DB56;
+         background: #AEFFC5;
+}
+.flash.error {
+         border: 1px solid #FF4343;
+         background: #FF9C9C;
+}
+
+.form-contact .invalid {
+         display: inline-block;
+         background: #FF9898;
+}
+.form-contact .invalid-feedback {
+         color: #CC0000;
+}
+.profile-ava {
+         width: 150px;
+         text-align: center;
+         overflow: hidden; 
+         background: #eee;
+         padding: 10px;
+}
+ 
+.profile-ava img {max-width: 150px; height: auto;}
+
+.profile-info {
+    background-color: #fff; /* Белый фон для блока profile-info */
+    padding: 20px;
+    margin: 20px 20px 20px 0; /* Автоматическое выравнивание по центру по горизонтали */
+    max-width: 600px; /* Ширина блока, чтобы он не был слишком широким */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Тень блока */
+    float: left; /* Выравнивание блока profile-info слева */
+    width: calc(30% - 20px); /* Ширина блока profile-info с учетом отступа */
+    vertical-align: top; /* Выравнивание по верхнему краю */
+}
+
+.profile-info .profile-table {
+    width: 100%; /* Ширина таблицы 100% родительского блока */
+    border-collapse: collapse; /* Объединяем границы ячеек таблицы */
+}
+
+.profile-info td {
+    vertical-align: top; /* Вертикальное выравнивание содержимого ячеек вверх */
+    padding: 10px; /* Отступы внутри ячеек */
+}
+
+.profile-panel {
+    width: 70%; /* Ширина блока profile-panel */
+}
+
+.profile-info ul {
+    list-style-type: none; /* Убираем маркеры у списка информации */
+    padding-left: 0; /* Убираем отступ слева у списка информации */
+    font-size: 18px; /* Размер шрифта для элементов списка информации */
+}
+
+.profile-info li {
+    margin-bottom: 10px; /* Отступ между элементами списка информации */
+}
+
+.profile-recipe-list {
+    background-color: #fff; /* Белый фон для блока profile-recipe-list */
+    padding: 20px;
+    margin: 20px auto; /* Автоматическое выравнивание по центру по горизонтали */
+    max-width: 600px; /* Ширина блока, чтобы он не был слишком широким */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Тень блока */
+    width: calc(70% - 20px); /* Ширина блока profile-recipe-list с учетом отступа */
+    vertical-align: top; /* Выравнивание по верхнему краю */
+}
+
+.profile-recipe-list {
+    background-color: #fff; /* Белый фон для блока рецепта */
+    padding: 20px;
+    margin: 20px auto; /* Автоматическое выравнивание по центру по горизонтали */
+    max-width: 600px; /* Ширина блока, чтобы он не был слишком широким */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Тень блока */
+}
+
+.recipe_title {
+    font-size: 24px; /* Размер шрифта для заголовка рецепта */
+    color: #b86f50; /* Цвет заголовка рецепта */
+}
+
+.recipe_announce {
+    font-size: 18px; /* Размер шрифта для анонса рецепта и продуктов */
+    color: #333; /* Цвет текста анонса */
+}
+
+.recipe_announce ul {
+    list-style-type: none; /* Убираем маркеры у списка продуктов */
+    margin: 0;
+    padding: 0;
+}
+
+.recipe_announce li {
+    margin-top: 10px; /* Отступ между продуктами в списке */
+}
+
+.comment-section {
+    background-color: #fff; /* Белый фон для секции комментариев */
+    padding: 20px;
+    margin: 20px auto; /* Автоматическое выравнивание по центру по горизонтали */
+    max-width: 600px; /* Ширина секции, чтобы она соответствовала блоку рецепта */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Тень секции */
+}
+
+.comment-section .form-comment input[type="text"],
+.comment-section .form-comment textarea {
+    width: 100%; /* Ширина текстовых полей на 100% родительского контейнера */
+}
+
+.user_comment {
+    list-style-type: none; /* Убираем маркеры у списка комментариев */
+    padding: 0;
+}
+
+.user_comment li {
+    border: 1px solid #ccc; /* Граница для каждого комментария */
+    padding: 10px; /* Отступы вокруг комментария */
+    margin-top: 10px; /* Отступ между комментариями */
+    border-radius: 5px; /* Закругляем углы комментариев */
+    background-color: #f9f9f9; /* Фон комментариев */
+}
+
+.comment {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.comment-date {
+    color: #888;
+    font-size: 14px;
+}
+
+.comment-text {
+    font-size: 16px;
+}
+.recipe-text {
+    font-size: 18px;
+    color: #333;
+    background-color: #fff; /* Белый фон для текста рецепта */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Тень блока */
+    overflow: auto; /* Добавляем полосы прокрутки при необходимости */
+    max-width: 100%; /* Ширина блока не больше родительского контейнера */
+}

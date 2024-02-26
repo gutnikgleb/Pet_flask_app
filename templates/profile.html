@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+{{ super() }}
+
+<div class="profile-info">
+	<table border="0" class="profile-table">
+		<tr><td valign="top">
+					<div class="profile-ava"><img src="{{ url_for('userava') }}"></div>
+					<p><a href="{{url_for('profile_update')}}">Изменить профиль</a>
+		</td>
+		<td valign="top" class="profile-panel">
+			<p><a href="{{url_for('logout')}}">Выйти из профиля</a>
+			<ul class="profile-info">
+			<li>Никнейм: {{ current_user.getName() }}</li>
+			<li>Email: {{ current_user.getEmail() }}</li>
+			</ul>
+		</td></tr>
+	</table>
+</div>
+<div class="profile-recipe-list">
+	<h2>Мои рецепты</h2>
+	<p><a href="{{ url_for('new_recipe') }}">Добавить рецепт</a>
+	{% if not recipes %}
+		<p>Пока пусто
+	{% else %}
+		<ul>
+		{% for r in recipes %}
+			<li>
+			<p class="recipe_title"><a href="{{ url_for('showRecipe', id_recipe=r.id) }}">{{ r.name }}</a></p>
+			{% if r.kkal %}
+				<p class="recipe_announce">Б: {{ r.prots }}; Ж: {{ r.fats }}; У: {{ r.carbs }}; Калории/100г: {{ r.kkal }}.</p>
+			{% endif %}
+			</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+</div>
+{% endblock %}

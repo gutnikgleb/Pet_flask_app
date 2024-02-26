@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+{{ super() }}
+
+<div class="profile-recipe-list">
+	<h2>Рецепты наших пользователей</h2>
+	{% if not recipes %}
+		<p>Пока пусто
+	{% else %}
+		<ul>
+		{% for r in recipes %}
+			<li>
+			<p class="recipe_title"><a href="{{ url_for('showRecipe4Guest', id_recipe=r.id) }}">{{ r.name }}</a></p>
+			{% if r.kkal %}
+				<p class="recipe_announce">Б: {{ r.prots }}; Ж: {{ r.fats }}; У: {{ r.carbs }}; Калории/100г: {{ r.kkal }}.</p>
+			{% endif %}
+			</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+{{ super() }}
+<div class="container">
+	{% for cat, msg in get_flashed_messages(True) %}
+	<div class="flash {{cat}}">{{msg}}</div>
+	{% endfor %}
+	<form action="" method="post" class="form-contact" novalidate>
+	{{ form.hidden_tag()}}
+	
+	{% for field in form if field.name not in ["csrf_token", "submit"] -%}
+		<p>{{ field.label() }}
+		{% if field.errors %}
+			{{ field(class="invalid") }}
+		<span class="invalid-feedback">
+			{% for e in field.errors %}
+				{{ e }}
+			{% endfor %}
+		</span>
+		{% else %}
+			{{ field() }}
+		{% endif %}
+	{% endfor %}
+	
+	<p>{{ form.submit() }}
+	<p><a href="{{ url_for('showRecipe', id_recipe=recipe.id) }}">Вернуться к рецепту</a></p>
+	</form>
+</div>
+{% endblock %}

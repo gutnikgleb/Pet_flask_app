@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+{{ super() }}
+
+<div class="profile-recipe-list">
+	<p class="recipe_title">{{ recipe.name }}</p>
+	<p class="recipe_announce">Б: {{ recipe.prots }}; Ж: {{ recipe.fats }}; У: {{ recipe.carbs }}; Калории/100г: {{ recipe.kkal }}.</p>
+	<p class="recipe_announce">Список продуктов:
+	<ul class="recipe_announce">
+	{% if products %}
+		{% for p, r_h_pr in products %}
+			<li>
+			<p>{{ p.name }}
+			<p>Б: {{ p.prots }}; Ж: {{ p.fats }}; У: {{ p.carbs }}; Калории/100г: {{ p.kkal }}.
+			<p>Вес продукта в блюде: {{ r_h_pr.weight }} г.
+			</li>
+		{% endfor %}
+	{% else %}
+		<li>
+		<p>Пока пусто
+		</li>
+	{% endif %}
+	</ul>
+	<p class="recipe_announce">Рецепт блюда:
+	<div class="recipe-text">{{ recipe.recipe }}</div>
+	<p class="recipe_announce">Вес готового блюда: {{ recipe.final_weight }}
+	<p><a href="{{ url_for('change_recipe', id_recipe=recipe.id) }}">Внести изменения в рецепт</a></p>
+	<p><a href="{{ url_for('calculate_macros', id_recipe=recipe.id) }}">Рассчитать калорийность блюда</a></p>
+</div>
+<div class="comment-section">
+	<h4>Комментарии</h4>
+	{% if comments %}
+		<ul class="user_comment">
+			{% for u, c in comments %}
+				<li class="comment">
+					<div class="comment-header">
+						<span class="username">{{ u.username }}</span>
+						<span class="comment-date">{{ c.date }}</span>
+					</div>
+					<div class="comment-text">{{ c.comment }}</div>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>Пока комментариев нет.
+	{% endif %}
+	<form action="" method="post" class="form-comment" novalidate>
+	{{ form.hidden_tag()}}
+	
+	{% for field in form if field.name not in ["csrf_token", "submit"] -%}
+		<p>{{ field.label() }}
+		{% if field.errors %}
+			{{ field(class="invalid") }}
+		<span class="invalid-feedback">
+			{% for e in field.errors %}
+				{{ e }}
+			{% endfor %}
+		</span>
+		{% else %}
+			{{ field() }}
+		{% endif %}
+	{% endfor %}
+	
+	<p>{{ form.submit() }}
+	</form>
+</div>
+{% endblock %}
